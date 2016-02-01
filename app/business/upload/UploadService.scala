@@ -3,6 +3,7 @@ package business.upload
 import java.io.ByteArrayInputStream
 
 import business.dto.LogRecordProto.LogRecord
+import business.upload.cache.LogCacheManager
 import business.upload.config.{UploadTestConfig, UploadProdConfig, UploadConfig}
 import com.amazonaws.auth.BasicAWSCredentials
 import com.amazonaws.regions.{Regions, Region}
