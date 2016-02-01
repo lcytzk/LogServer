@@ -1,0 +1,41 @@
+package business.proto;
+
+option java_package = "business.dto";
+option java_outer_classname = "LogRecordProto";
+
+message LogRecord {
+    optional string encrypt_user = 1;
+    optional string locale = 2;
+    optional string device = 3;
+    optional string model = 4;
+    // Device serial number can be used to identify unique device
+    optional string serial = 5;
+    optional string build_type = 6;
+    optional string release_version = 7;
+    optional string incremental_version = 8;
+    // nightly, beta, stable, unkown etc
+    optional string build_flavor = 9;
+    optional string tag = 10;
+    optional string remixos_version = 11;
+    optional string android_id = 12;
+
+    optional int32 screen_width = 13;
+    optional int32 screen_height = 14;
+    optional int32 density = 15;
+
+    optional int32 log_type = 16;
+    optional Log log = 17;
+}
+
+enum LogType {
+    EXCEPTION_LOG = 1;
+}
+
+message Log {
+    optional ExceptionLog exceptionLog = 1;
+}
+
+message ExceptionLog {
+    required string exception = 1;
+    required string detail = 2;
+}

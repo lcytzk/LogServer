@@ -1,0 +1,45 @@
+<configuration>
+
+    <!-- logDir 是jvm传递的参数 需要在运行时指定  ./activator run -J-DlogDir=xxxxx  or -DlogDir=xxxx -->
+    <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
+
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/log.jide.error</file>
+        <encoder>
+            <pattern>%date - [%level][%file : %line] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- All log except access log. -->
+    <appender name="ALL_LOG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/log.jide.all</file>
+        <encoder>
+            <pattern>%date - [%level][%file : %line] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ACCESS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${logDir}/log.jide.access</file>
+        <encoder>
+            <pattern>%date - [%level][%file : %line] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="play" level="INFO" />
+    <logger name="application" level="INFO" />
+
+    <logger name="ACCESS_LOG" level="INFO" additivity="false">
+        <appender-ref ref="ACCESS_FILE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="ALL_LOG_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </root>
+
+</configuration>
