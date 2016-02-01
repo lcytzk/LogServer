@@ -1,6 +1,6 @@
 package business.upload
 
-import business.dto.LogRecordProto.LogType
+import business.dto.LogRecordProto.{LogRecord, LogType}
 
 object UploadHelper {
 
@@ -16,4 +16,7 @@ object UploadHelper {
     KEY_PREFIX(logType) + "date" + "filename"
   }
 
+  def convertLogRecordToString(logRecord: List[LogRecord]): List[String] = {
+    List[String]("")
+  }
 }

@@ -2,7 +2,7 @@ package business.log
 
 import business.dto.LogRecordProto.LogRecord
 import business.monitor.impl.FilterManager
-import business.upload.UploadService
+import business.upload.LogUploadService
 
 import scala.collection.mutable.ListBuffer
 
@@ -18,7 +18,7 @@ object LogService {
       }
       record = wrapper.readALogRecord
     }
-    UploadService.uploadLog(records.toList)
+    LogUploadService.uploadLog(records.toList)
   }
 
 }

@@ -1,6 +1,6 @@
-package business.upload.config
+package business.aws.config
 
-trait UploadConfig {
+trait AWSConfig {
 
   var AWS_ACCESS_ID: String
 

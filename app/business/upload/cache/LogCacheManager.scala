@@ -16,13 +16,15 @@ object LogCacheManager {
 //    }
   }
 
-  def getCacheQueue(logType: Int): ConcurrentLinkedQueue[String] = {
-    if (maps.contains(logType)) {
-      maps.get(logType)
-    } else {
-      maps.put(logType, new ConcurrentLinkedQueue[String]())
-    }
+  def addRows(logType: Int, values: List[String]) = {
+    val queue = getCacheQueue(logType)
+    values.foreach( value => queue.add(value))
+    //    if (condition) {
+    //      uploadToAWS()
+    //    }
   }
+
+
 
   def uploadToAWS(logType: Int) = {
     UploadHelper.generateLogS3Key(logType)

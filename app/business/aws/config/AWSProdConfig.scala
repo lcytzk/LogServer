@@ -1,6 +1,6 @@
-package business.upload.config
+package business.aws.config
 
-object UploadProdConfig extends UploadConfig {
+object AWSProdConfig extends AWSConfig {
 
   override var AWS_ACCESS_ID: String = _
 

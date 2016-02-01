@@ -1,6 +1,6 @@
-package business.upload.config
+package business.aws.config
 
-object UploadTestConfig extends UploadConfig {
+object AWSTestConfig extends AWSConfig {
 
   override var AWS_ACCESS_ID: String = "AKIAIM7CSWO7VMSKQJLA"
 
