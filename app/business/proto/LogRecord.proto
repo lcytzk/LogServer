@@ -4,6 +4,13 @@ option java_package = "business.dto";
 option java_outer_classname = "LogRecordProto";
 
 message LogRecord {
+    required string serial = 1;
+    required Environment env = 2;
+    required LogType logType = 3;
+    required Log log = 4;
+}
+
+message Environment {
     optional string encrypt_user = 1;
     optional string locale = 2;
     optional string device = 3;
@@ -18,13 +25,9 @@ message LogRecord {
     optional string tag = 10;
     optional string remixos_version = 11;
     optional string android_id = 12;
-
     optional int32 screen_width = 13;
     optional int32 screen_height = 14;
     optional int32 density = 15;
-
-    optional int32 log_type = 16;
-    optional Log log = 17;
 }
 
 enum LogType {
