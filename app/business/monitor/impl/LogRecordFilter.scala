@@ -1,11 +1,10 @@
 package business.monitor.impl
 
-import business.monitor.Filter
-import com.google.protobuf.GeneratedMessage
+import business.dto.LogRecordProto.LogRecord
 
-class LogRecordFilter extends Filter {
+class LogRecordFilter {
 
-  override def needFilter(message: GeneratedMessage): Boolean = {
+  def filter(message: LogRecord): Boolean = {
     true
   }
 

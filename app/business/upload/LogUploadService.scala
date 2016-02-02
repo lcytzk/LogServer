@@ -4,7 +4,7 @@ import java.util
 import java.util.concurrent.{ConcurrentHashMap, ConcurrentLinkedQueue}
 
 import business.aws.AWSClient
-import business.dto.LogRecordProto.LogRecord
+import business.dto.LogRecordProto.{LogType, LogRecord}
 import org.apache.commons.lang3.StringUtils
 import org.slf4j.LoggerFactory
 
@@ -21,6 +21,7 @@ object LogUploadService {
   }
 
   private def init() = {
+    maps.put(LogType.EXCEPTION_LOG_VALUE, new ConcurrentLinkedQueue[String]())
 //    add different log type queue into maps
   }
 

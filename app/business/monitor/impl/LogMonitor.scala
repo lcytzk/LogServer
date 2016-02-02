@@ -14,12 +14,12 @@ object LogMonitor {
       monitor(content)
       LogFilterManager.filter(content)
     } else {
-      false
+      true
     }
   }
 
   def monitor(logRecord: LogRecord) = {
-//    how to evaluate size of a log
+//    how to evaluate the size of a log record
     size.addAndGet(logRecord.getSerializedSize)
   }
 }
