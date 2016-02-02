@@ -16,7 +16,11 @@ object UploadHelper {
     KEY_PREFIX(logType) + "date" + "filename"
   }
 
-  def convertLogRecordToString(logRecord: List[LogRecord]): List[String] = {
+  def convertLogRecordToString(logRecord: LogRecord): String = {
+    ""
+  }
+
+  def convertLogRecordToString(logRecords: List[LogRecord]): List[String] = {
     List[String]("")
   }
 }

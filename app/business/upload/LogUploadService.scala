@@ -19,7 +19,9 @@ object LogUploadService {
     val logType = records.head.getLogType
     val queue = getCacheQueue(logType)
     queue.synchronized {
-      UploadHelper.convertLogRecordToString(records).foreach(value => queue.add(value))
+      records.foreach { record =>
+        queue.add(UploadHelper.convertLogRecordToString(record))
+      }
       if (queue.size() > CACHE_SIZE) {
         uploadToAWS(UploadHelper.generateLogS3Key(logType), queue)
         queue.clear()
