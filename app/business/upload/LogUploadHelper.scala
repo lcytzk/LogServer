@@ -2,7 +2,7 @@ package business.upload
 
 import business.dto.LogRecordProto.{LogRecord, LogType}
 
-object UploadHelper {
+object LogUploadHelper {
 
   private val KEY_PREFIX = Map[Int, String](
     LogType.EXCEPTION_LOG_VALUE -> "test-exception/"

@@ -1,6 +1,7 @@
 package business.aws.config
 
 import com.amazonaws.regions.Region
+import play.api.Play
 
 trait AWSConfig {
 
@@ -11,5 +12,14 @@ trait AWSConfig {
   var AWS_BUCKET: String
 
   val REGION: Region
+}
 
+object AWSConfig {
+  def getProperConfig: AWSConfig = {
+    if (Play.current.configuration.getString("env").get.equals("Test")) {
+      AWSTestConfig
+    } else {
+      AWSProdConfig
+    }
+  }
 }

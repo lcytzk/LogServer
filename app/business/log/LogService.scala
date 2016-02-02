@@ -1,7 +1,7 @@
 package business.log
 
 import business.dto.LogRecordProto.LogRecord
-import business.monitor.impl.FilterManager
+import business.monitor.impl.LogMonitor
 import business.upload.LogUploadService
 
 import scala.collection.mutable.ListBuffer
@@ -13,7 +13,7 @@ object LogService {
     val records = ListBuffer[LogRecord]()
     var record = wrapper.readALogRecord
     while (record.nonEmpty) {
-      if (FilterManager.filter(record.get)) {
+      if (LogMonitor.filter(record)) {
         records.append(record.get)
       }
       record = wrapper.readALogRecord

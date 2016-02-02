@@ -5,7 +5,7 @@ import business.monitor.Filter
 
 import scala.collection.mutable.ListBuffer
 
-object FilterManager {
+object LogFilterManager {
 
   var filters = ListBuffer[Filter]()
 
